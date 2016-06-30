@@ -2,16 +2,17 @@ name: simple-node-bot
 description: A simple node.js starter bot for Beep Boop
 avatar: resources/avatar.png
 #background: resources/background.png
-#config:
-#  - name: OPTION
-#    friendly_name: Some Unnecessary Option
-#    info: This is an unnecessary option
-#    default: the default value
-#  - name: SECRET
-#    friendly_name: Shhhh
-#    info: This is an secret option
-#    type: secret
-#    default: not secret though
+config:
+  - name: GCLOUD_PROJECT
+    friendly_name: Google Cloud Project
+    info: This is the Google Cloud Project this object maps to.
+    type: secret
+    global: true
+  - name: GOOGLE_APPLICATION_CREDENTIALS_JSON
+    friendly_name: Google App Creds
+    info: This is the Google App Credentials JSON file location.
+    type: secret
+    global: true
 #screenshots:
 #  - screenshot: resources/screenshot1.png
 #  - screenshot: resources/screenshot2.jpg
