@@ -1,3 +1,14 @@
+var fs = require("fs");
+var gcloud_app_creds = process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON;
+var gcloud_app_creds_tmp_file = "/tmp/simple-node-bot-9fab12ae96de.json";
+if(gcloud_app_creds) {
+    console.log("Writing gcloud application credentials to tmp file...");
+    fs.writeFileSync(gcloud_app_creds_tmp_file, gcloud_app_creds, "utf-8");
+    process.env.GOOGLE_APPLICATION_CREDENTIALS = gcloud_app_creds_tmp_file;
+    console.log("Starting gcloud debug agent...");
+    require("@google/cloud-debug");
+}
+
 var Botkit = require('botkit')
 
 var token = process.env.SLACK_TOKEN
