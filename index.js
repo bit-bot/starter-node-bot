@@ -7,6 +7,7 @@ if(gcloud_app_creds) {
     process.env.GOOGLE_APPLICATION_CREDENTIALS = gcloud_app_creds_tmp_file;
     console.log("Starting gcloud debug agent...");
     require("@google/cloud-debug");
+    console.log("Started gcloud debug!");
 }
 
 var Botkit = require('botkit')
@@ -42,7 +43,7 @@ controller.on('bot_channel_join', function (bot, message) {
 })
 
 controller.hears(['hello', 'hi'], ['direct_mention'], function (bot, message) {
-  bot.reply(message, 'Hello.')
+  bot.reply(message, 'Hello! How\'re you doing today?')
 })
 
 controller.hears(['hello', 'hi'], ['direct_message'], function (bot, message) {
